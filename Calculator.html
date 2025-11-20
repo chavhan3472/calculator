@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cal</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+      }
+      .calculator {
+        width: 320px;
+        padding: 20px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .display {
+        width: 100%;
+        height: 60px;
+        border: none;
+        border-radius: 10px;
+        font-size: 28px;
+        padding: 10px;
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        outline: none;
+        text-align: right;
+      }
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .buttons button {
+        padding: 15px 0;
+        font-size: 20px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        background: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: 0.2s;
+      }
+      .buttons button:hover {
+        transform: scale(1.08);
+        background: #f2f2f2;
+      }
+      .buttons button:active {
+        transform: scale(0.95);
+      }
+
+      button:nth-child(2) {
+        background: #ffcccb;
+      }
+
+      button:nth-child(3) {
+        background: #ffd700;
+      }
+      button:nth-child(4) {
+        background: #90ee90;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" class="display" />
+      <div class="buttons">
+        <button onclick="del()">Del</button>
+        <button onclick="clr()">Clear</button>
+        <button onclick="cal()">=</button>
+        <button onclick="add('1')">1</button>
+        <button onclick="add('2')">2</button>
+        <button onclick="add('3')">3</button>
+        <button onclick="add('4')">4</button>
+        <button onclick="add('5')">5</button>
+        <button onclick="add('6')">6</button>
+        <button onclick="add('7')">7</button>
+        <button onclick="add('8')">8</button>
+        <button onclick="add('9')">9</button>
+        <button onclick="add('0')">9</button>
+        <button onclick="add('00')">00</button>
+        <button onclick="add('+')">+</button>
+        <button onclick="add('-')">-</button>
+        <button onclick="add('*')">*</button>
+        <button onclick="add('%')">%</button>
+        <button onclick="add('/')">/</button>
+      </div>
+    </div>
+    <script>
+        let inp = document.querySelector("input")
+
+        function add(n){
+            inp.value+=n
+        }
+
+        function cal(){
+            inp.value = eval(inp.value)
+        }
+
+        function del(){
+            inp.value = inp.value.slice(0,inp.value.len-1)
+        }
+
+        function clr(){
+            inp.value="0"
+        }
+
+    </script>
+  </body>
+</html>
